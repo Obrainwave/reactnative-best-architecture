@@ -353,3 +353,36 @@ FlashList
 ```
 
 This stack is realistic, production-proven, and can comfortably support a streaming platform with movies, payments, ads, notifications, watchlists, and video playback without requiring a major restructure later.
+
+---
+
+# Getting Started
+"All the codes" for a production React Native architecture is hundreds of files. A realistic starting point is to scaffold the bootstrap layer so the app runs with:
+
+React Navigation
+Zustand
+TanStack Query
+Authentication state
+Providers
+Root navigation
+Module structure
+
+```bash
+npm install @react-navigation/native
+npm install @react-navigation/native-stack
+npm install react-native-screens
+npm install react-native-safe-area-context
+
+npm install zustand
+
+npm install @tanstack/react-query
+
+npm install react-native-mmkv
+
+npm install axios
+
+npm install react-native-mmkv
+
+npm install react-native-keychain
+```
+
