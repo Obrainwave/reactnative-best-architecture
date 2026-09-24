@@ -3,7 +3,7 @@ import React from 'react';
 import { AuthNavigator } from './AuthNavigator';
 import { MainNavigator } from './MainNavigator';
 
-import { useAuthStore } from '@/modules/auth/store/auth.store';
+import { useAuthStore } from '../../modules/auth/store/auth.store';
 
 export function RootNavigator() {
   const authenticated =
