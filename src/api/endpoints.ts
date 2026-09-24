@@ -1,3 +1,4 @@
+// endpoints.ts
 export const ENDPOINTS = {
   AUTH: {
     LOGIN: '/auth/login',
