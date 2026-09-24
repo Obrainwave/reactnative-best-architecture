@@ -1,9 +1,11 @@
-import { useMutation } from '@tanstack/react-query';
-
-import { AuthApi } from '../api/auth.api';
+import { useAuthStore } from '../store/auth.store';
+import { AuthStorage } from '@/storage/async-storage';
 
 export const useLogout = () => {
-  return useMutation({
-    mutationFn: AuthApi.logout,
-  });
+  const logout = useAuthStore(state => state.logout);
+
+  return async () => {
+    await AuthStorage.clear();
+    logout();
+  };
 };
