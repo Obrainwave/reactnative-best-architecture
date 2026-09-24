@@ -1,27 +1,26 @@
-// auth.store.ts
 import { create } from 'zustand';
 
-interface AuthState {
-  token: string | null;
-  authenticated: boolean;
+import type { User } from '../api/auth.types';
 
-  login: (token: string) => void;
+interface AuthState {
+  authenticated: boolean;
+  accessToken: string | null;
+  refreshToken: string | null;
+  user: User | null;
+
+  setAuth: (accessToken: string, refreshToken: string, user: User) => void;
   logout: () => void;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-  token: null,
+export const useAuthStore = create<AuthState>(set => ({
   authenticated: false,
+  accessToken: null,
+  refreshToken: null,
+  user: null,
 
-  login: token =>
-    set({
-      token,
-      authenticated: true,
-    }),
+  setAuth: (accessToken, refreshToken, user) =>
+    set({ authenticated: true, accessToken, refreshToken, user }),
 
   logout: () =>
-    set({
-      token: null,
-      authenticated: false,
-    }),
+    set({ authenticated: false, accessToken: null, refreshToken: null, user: null }),
 }));
